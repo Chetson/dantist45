@@ -1,9 +1,0 @@
-tls:
-  certificates:
-    - certFile: /etc/traefik/certs/dantist45.crt
-      keyFile: /etc/traefik/certs/dantist45.key
-  stores:
-    default:
-      defaultCertificate:
-        certFile: /etc/traefik/certs/dantist45.crt
-        keyFile: /etc/traefik/certs/dantist45.key

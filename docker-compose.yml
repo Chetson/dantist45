@@ -1,32 +1,11 @@
 services:
-  traefik:
-    image: traefik:v3.1
-    container_name: traefik
-    restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
-      - ./traefik/certs-config.yml:/etc/traefik/certs-config.yml:ro
-      - ./certs:/etc/traefik/certs:ro
-
   app:
     build:
       context: .
     ports:
-      - "3101:3000"
+      - '3101:3000'
     volumes:
       - ./data:/app/data
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.dantist-app.rule=Host(`dantist45.ru`)"
-      - "traefik.http.routers.dantist-app.entrypoints=websecure"
-      - "traefik.http.routers.dantist-app.tls=true"
-      - "traefik.http.services.dantist-app.loadbalancer.server.port=3000"
