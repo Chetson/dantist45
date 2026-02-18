@@ -29,6 +29,9 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Pre-install tsx globally to allow running maintenance scripts without prompts
+RUN npm install -g tsx
+
 # Standard 'node' user from Alpine image has UID 1000
 # This is usually the best choice for matching local volume permissions.
 

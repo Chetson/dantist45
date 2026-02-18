@@ -11,7 +11,7 @@ This project is optimized for deployment using Docker.
 
 2. **Initialize Admin**:
    ```bash
-   docker compose exec app npx tsx scripts/create-admin.ts
+   docker compose exec app tsx scripts/create-admin.ts
    ```
    *Note: This will create an admin user with Login: `admin` / Password: `admin123`*
 
