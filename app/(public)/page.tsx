@@ -64,22 +64,22 @@ export default function Home() {
 
       {/* Announcement Section */}
       {isAnnouncementActive && announcementHtml && (
-        <div className="relative z-20 mx-auto -mt-12 mb-12 max-w-5xl px-6">
-          <div className="animate-fade-in relative flex flex-col items-center gap-8 overflow-hidden rounded-[3rem] border-2 border-amber-200 bg-linear-to-r from-amber-50 to-orange-50 p-8 shadow-2xl shadow-amber-950/10 md:flex-row md:p-12">
+        <div className="relative z-20 mx-auto mt-6 mb-8 max-w-5xl px-4 md:-mt-12 md:mb-12 md:px-6">
+          <div className="animate-fade-in relative flex flex-col items-center gap-5 overflow-hidden rounded-3xl border-2 border-amber-200 bg-linear-to-r from-amber-50 to-orange-50 p-6 shadow-xl shadow-amber-950/10 md:flex-row md:gap-8 md:rounded-[3rem] md:p-12">
             {/* Decorative background icon */}
-            <div className="pointer-events-none absolute -right-8 -bottom-8 rotate-12 text-9xl opacity-5 select-none">
+            <div className="pointer-events-none absolute right-0 bottom-0 rotate-12 text-8xl opacity-5 select-none">
               📢
             </div>
 
-            <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-3xl bg-amber-200 text-4xl shadow-inner shadow-amber-300">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-200 text-2xl shadow-inner shadow-amber-300 md:h-20 md:w-20 md:rounded-3xl md:text-4xl">
               📢
             </div>
-            <div className="flex-grow text-center md:text-left">
-              <h2 className="mb-3 flex items-center justify-center gap-2 text-xl font-black tracking-widest text-amber-900 uppercase md:justify-start">
+            <div className="grow text-center md:text-left">
+              <h2 className="mb-2 flex items-center justify-center gap-2 text-base font-black tracking-widest text-amber-900 uppercase md:mb-3 md:justify-start md:text-xl">
                 Важное объявление
               </h2>
               <div
-                className="prose prose-slate prose-lg max-w-none leading-relaxed font-medium text-amber-900/80"
+                className="prose prose-slate prose-sm md:prose-lg max-w-none leading-relaxed font-medium text-amber-900/80"
                 dangerouslySetInnerHTML={{ __html: announcementHtml }}
               />
             </div>
@@ -235,9 +235,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <p className="mb-8 flex-grow text-lg text-slate-700 italic">
-                  &quot;{review.text}&quot;
-                </p>
+                <p className="mb-8 grow text-lg text-slate-700 italic">&quot;{review.text}&quot;</p>
                 <div className="flex items-center space-x-4 border-t border-slate-50 pt-6">
                   <div className="text-primary flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 font-bold">
                     {review.name[0]}
