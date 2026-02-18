@@ -41,70 +41,68 @@ export default function AdminDashboardPage() {
 
         <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {user?.role === 'admin' && (
-            <>
-              <Link
-                href="/admin/users"
-                className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
-              >
-                <div className="px-4 py-5 sm:p-6">
-                  <dt className="truncate text-sm font-medium text-gray-500">
-                    Управление пользователями
-                  </dt>
-                  <dd className="mt-1 text-3xl font-semibold text-gray-900">Пользователи</dd>
-                  <p className="mt-2 text-sm text-gray-500">
-                    Создание, редактирование и удаление пользователей
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/admin/categories"
-                className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
-              >
-                <div className="px-4 py-5 sm:p-6">
-                  <dt className="truncate text-sm font-medium text-gray-500">
-                    Категории услуг
-                  </dt>
-                  <dd className="mt-1 text-3xl font-semibold text-gray-900">Категории</dd>
-                  <p className="mt-2 text-sm text-gray-500">
-                    Управление категориями для группировки услуг
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/admin/services"
-                className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
-              >
-                <div className="px-4 py-5 sm:p-6">
-                  <dt className="truncate text-sm font-medium text-gray-500">
-                    Список услуг
-                  </dt>
-                  <dd className="mt-1 text-3xl font-semibold text-gray-900">Услуги</dd>
-                  <p className="mt-2 text-sm text-gray-500">
-                    Управление услугами и ценами
-                  </p>
-                </div>
-              </Link>
-
-              <Link
-                href="/admin/announcements"
-                className="overflow-hidden rounded-lg bg-white border-2 border-primary/20 shadow-lg shadow-blue-500/5 transition-all hover:shadow-xl hover:scale-[1.02]"
-              >
-                <div className="px-4 py-5 sm:p-6">
-                  <dt className="truncate text-sm font-medium text-primary uppercase tracking-widest">
-                    Важное оповещение
-                  </dt>
-                  <dd className="mt-1 text-3xl font-black text-gray-900 flex items-center gap-2">
-                    Объявление 📢
-                  </dd>
-                  <p className="mt-2 text-sm text-gray-500 italic">
-                    Управление текстом и показом объявления на главной странице клиники
-                  </p>
-                </div>
-              </Link>
-            </>
+            <Link
+              href="/admin/users"
+              className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
+            >
+              <div className="px-4 py-5 sm:p-6">
+                <dt className="truncate text-sm font-medium text-gray-500">
+                  Управление пользователями
+                </dt>
+                <dd className="mt-1 text-3xl font-semibold text-gray-900">Пользователи</dd>
+                <p className="mt-2 text-sm text-gray-500">
+                  Создание, редактирование и удаление пользователей
+                </p>
+              </div>
+            </Link>
           )}
+
+          <Link
+            href="/admin/categories"
+            className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
+          >
+            <div className="px-4 py-5 sm:p-6">
+              <dt className="truncate text-sm font-medium text-gray-500">
+                Категории услуг
+              </dt>
+              <dd className="mt-1 text-3xl font-semibold text-gray-900">Категории</dd>
+              <p className="mt-2 text-sm text-gray-500">
+                Управление категориями для группировки услуг
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/services"
+            className="overflow-hidden rounded-lg bg-white shadow transition-shadow hover:shadow-md"
+          >
+            <div className="px-4 py-5 sm:p-6">
+              <dt className="truncate text-sm font-medium text-gray-500">
+                Список услуг
+              </dt>
+              <dd className="mt-1 text-3xl font-semibold text-gray-900">Услуги</dd>
+              <p className="mt-2 text-sm text-gray-500">
+                Управление услугами и ценами
+              </p>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/announcements"
+            className="overflow-hidden rounded-lg bg-white border-2 border-primary/20 shadow-lg shadow-blue-500/5 transition-all hover:shadow-xl hover:scale-[1.02]"
+          >
+            <div className="px-4 py-5 sm:p-6">
+              <dt className="truncate text-sm font-medium text-primary uppercase tracking-widest">
+                Важное оповещение
+              </dt>
+              <dd className="mt-1 text-3xl font-black text-gray-900 flex items-center gap-2">
+                Объявление 📢
+              </dd>
+              <p className="mt-2 text-sm text-gray-500 italic">
+                Управление текстом и показом объявления на главной странице клиники
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

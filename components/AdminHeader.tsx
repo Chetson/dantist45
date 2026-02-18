@@ -43,9 +43,9 @@ export default function AdminHeader() {
     const navLinks = [
         { href: '/admin/dashboard', label: 'Главная' },
         { href: '/admin/users', label: 'Пользователи', adminOnly: true },
-        { href: '/admin/categories', label: 'Категории услуг', adminOnly: true },
-        { href: '/admin/services', label: 'Услуги', adminOnly: true },
-        { href: '/admin/announcements', label: 'Уведомление', adminOnly: true },
+        { href: '/admin/categories', label: 'Категории услуг' },
+        { href: '/admin/services', label: 'Услуги' },
+        { href: '/admin/announcements', label: 'Уведомление' },
     ];
 
     return (
@@ -68,8 +68,8 @@ export default function AdminHeader() {
                                         key={link.href}
                                         href={link.href}
                                         className={`px-3 py-2 rounded-md transition-colors ${isActive
-                                                ? 'bg-blue-50 text-primary font-bold'
-                                                : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
+                                            ? 'bg-blue-50 text-primary font-bold'
+                                            : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
                                             }`}
                                     >
                                         {link.label}

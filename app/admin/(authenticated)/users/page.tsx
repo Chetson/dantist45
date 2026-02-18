@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface User {
   id: number;
@@ -12,6 +13,7 @@ interface User {
 }
 
 export default function AdminUsersPage() {
+  const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -31,6 +33,10 @@ export default function AdminUsersPage() {
   const fetchUsers = async () => {
     try {
       const res = await fetch('/api/users');
+      if (res.status === 403) {
+        router.push('/admin/dashboard');
+        return;
+      }
       const data = await res.json();
       if (res.ok) {
         setUsers(data.users);
@@ -45,6 +51,7 @@ export default function AdminUsersPage() {
   useEffect(() => {
     fetchUsers();
   }, []);
+
 
   const generatePassword = () => {
     const charset =
@@ -345,11 +352,10 @@ export default function AdminUsersPage() {
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap">
                       <span
-                        className={`rounded-full px-2 py-1 text-xs font-medium ${
-                          user.role === 'admin'
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${user.role === 'admin'
                             ? 'bg-purple-100 text-purple-800'
                             : 'bg-blue-100 text-blue-800'
-                        }`}
+                          }`}
                       >
                         {user.role === 'admin' ? 'Администратор' : 'Менеджер'}
                       </span>
