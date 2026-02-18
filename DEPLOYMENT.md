@@ -13,7 +13,7 @@ This project is optimized for deployment using Docker.
    ```bash
    docker compose exec app npx tsx scripts/create-admin.ts
    ```
-   *Default login:* `admin` / `admin123`
+   *Note: This will create an admin user with Login: `admin` / Password: `admin123`*
 
 ## Useful Commands
 

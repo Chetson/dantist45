@@ -34,6 +34,10 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 COPY --from=builder /app/public ./public
 
+# Copy scripts and lib for maintenance tasks (like create-admin)
+COPY --from=builder --chown=node:node /app/scripts ./scripts
+COPY --from=builder --chown=node:node /app/lib ./lib
+
 # Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown node:node .next
