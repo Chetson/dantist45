@@ -63,6 +63,53 @@ npm run format    # Форматирование Prettier
 npm run init-db   # Инициализация базы данных
 ```
 
+## Docker Deployment
+
+### Quick Start
+
+```bash
+# Build and start the containers
+docker-compose up -d
+
+# Check logs
+docker-compose logs -f
+
+# Stop containers
+docker-compose down
+```
+
+### Initial Setup
+
+After deploying, the container will automatically initialize the database with default admin credentials:
+
+- Username: `admin`
+- Password: `admin123`
+
+### Project Structure
+
+```
+├── docker-compose.yml    # Docker compose configuration
+├── Dockerfile             # Docker image definition
+├── .dockerignore         # Files to exclude from Docker build
+├── docker-entrypoint.sh  # Entry point script for initialization
+├── data/                 # Persistent data volume (SQLite database)
+└── app/                  # Next.js application
+```
+
+### Environment Variables
+
+You can customize the deployment by setting environment variables:
+
+```yaml
+environment:
+  - NODE_ENV=production
+  - PORT=3000
+```
+
+### Database Persistence
+
+The SQLite database is stored in the `./data` directory, which is mounted as a volume. This ensures your data persists across container restarts.
+
 ## Административная панель
 
 ### Роли пользователей

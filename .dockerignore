@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+npm-debug.log
+package-lock.json
+
+# build output
+.next/standalone
+.next/static
+out
+dist
+
+# env files
+.env
+.env.local
+.env.production
+
+# IDE
+.idea
+.vscode
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# git
+.git
+.gitignore
+
+# logs
+*.log
+logs
+
+# misc
+.cache
+*.swp
+*.swo
