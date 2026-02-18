@@ -2,10 +2,33 @@ services:
   app:
     build:
       context: .
-    ports:
-      - '3101:3000'
+    expose:
+      - "3000"
     volumes:
       - ./data:/app/data
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+    networks:
+      - app-network
+
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

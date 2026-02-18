@@ -1,0 +1,3 @@
+dantist45.ru {
+    reverse_proxy app:3000
+}
