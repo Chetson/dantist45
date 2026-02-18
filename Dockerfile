@@ -17,6 +17,9 @@ COPY . .
 # Next.js telemetry is enabled by default. Set this to 1 to disable it.
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Create data directory so SQLite can initialize during build-time pre-rendering if needed
+RUN mkdir -p data
+
 RUN npm run build
 
 # 3. Production image, copy all the files and run next
