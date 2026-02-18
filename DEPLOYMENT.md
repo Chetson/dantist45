@@ -21,6 +21,10 @@ This project is optimized for deployment using Docker.
 - **Restart**: `docker compose restart`
 - **Down**: `docker compose down`
 
-## Backup
+## Troubleshooting
 
-All data is stored in `./data/database.db`. Simply copy this file for backups.
+### "unable to open database file" or "SQLITE_CANTOPEN"
+If you see this error, it's usually a permission issue with the `data` folder on the host. Fix it with:
+```bash
+docker compose exec --user root app chown -R node:node /app/data
+```
