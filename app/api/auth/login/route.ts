@@ -12,13 +12,13 @@ export async function POST(request: NextRequest) {
 
     const user = db.prepare('SELECT * FROM users WHERE username = ?').get(username) as
       | {
-          id: number;
-          username: string;
-          full_name: string;
-          password: string;
-          email: string;
-          role: string;
-        }
+        id: number;
+        username: string;
+        full_name: string;
+        password: string;
+        email: string;
+        role: string;
+      }
       | undefined;
 
     if (!user) {
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
       JSON.stringify({ userId: user.id, username: user.username, role: user.role }),
       {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: request.nextUrl.protocol === 'https:',
         sameSite: 'strict',
         maxAge: 60 * 60 * 24 * 7,
       }
