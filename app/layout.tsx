@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   title: 'Стоматология «Дантист»',
   description:
     'Стоматология «Дантист» — это не просто клиника, это центр инноваций, где современные технологии сочетаются с высочайшим уровнем заботы о каждом пациенте.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: {
+      url: '/apple-icon.png',
+      type: 'image/png',
+    },
+  },
 };
 
 export default function RootLayout({
