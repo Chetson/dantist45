@@ -1,36 +1,17 @@
-# dependencies
+.next
 node_modules
-npm-debug.log
-package-lock.json
-
-# build output
-.next/standalone
-.next/static
 out
-dist
-
-# env files
-.env
-.env.local
-.env.production
-
-# IDE
-.idea
-.vscode
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# git
+build
 .git
-.gitignore
-
-# logs
-*.log
-logs
-
-# misc
-.cache
-*.swp
-*.swo
+.github
+.vscode
+.idea
+README.md
+DEPLOYMENT.md
+Dockerfile
+docker-compose.yml
+npm-debug.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

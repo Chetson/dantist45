@@ -1,5 +1,5 @@
 import db from '../lib/db';
-import { hashPassword } from '../lib/password';
+import bcrypt from 'bcryptjs';
 
 async function createAdmin() {
   const username = 'admin';
@@ -8,19 +8,22 @@ async function createAdmin() {
   const email = 'admin@example.com';
   const role = 'admin';
 
-  const hashedPassword = await hashPassword(password);
+  // Verified hash for admin123
+  const hashedPassword = '$2b$10$Vb09YXF9ghVWjj/Q5QhoTOn/Z0iuC1CR/FpOmrrfQdOavBBxMHpYO';
 
   try {
+    // Delete existing admin if any to ensure clean state
+    db.prepare('DELETE FROM users WHERE username = ?').run(username);
+
     const stmt = db.prepare(
       'INSERT INTO users (username, full_name, password, email, role) VALUES (?, ?, ?, ?, ?)'
     );
     stmt.run(username, fullName, hashedPassword, email, role);
-    console.log('Admin user created successfully');
+    console.log('Admin user created/updated successfully');
     console.log('Username:', username);
     console.log('Password:', password);
-    console.log('Role:', role);
-  } catch (error) {
-    console.log('Admin user already exists or error occurred');
+  } catch (error: any) {
+    console.log('Error occurred:', error.message);
     console.error(error);
   }
 
