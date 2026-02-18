@@ -1,3 +1,7 @@
+{
+    email admin@dantist45.ru
+}
+
 dantist45.ru {
     reverse_proxy app:3000
 }

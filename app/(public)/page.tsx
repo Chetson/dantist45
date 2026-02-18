@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import db from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const settings = db.prepare('SELECT * FROM settings').all() as { key: string; value: string }[];
   const settingsMap = settings.reduce(
