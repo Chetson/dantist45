@@ -74,12 +74,12 @@ export default function Home() {
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-200 text-2xl shadow-inner shadow-amber-300 md:h-20 md:w-20 md:rounded-3xl md:text-4xl">
               📢
             </div>
-            <div className="grow text-center md:text-left">
+            <div className="min-w-0 w-full text-center md:text-left">
               <h2 className="mb-2 flex items-center justify-center gap-2 text-base font-black tracking-widest text-amber-900 uppercase md:mb-3 md:justify-start md:text-xl">
                 Важное объявление
               </h2>
               <div
-                className="prose prose-slate prose-sm md:prose-lg max-w-none leading-relaxed font-medium text-amber-900/80"
+                className="prose prose-slate prose-sm md:prose-lg w-full max-w-full leading-relaxed font-medium text-amber-900/80 [&_*]:max-w-full [&_*]:break-words"
                 dangerouslySetInnerHTML={{ __html: announcementHtml }}
               />
             </div>
