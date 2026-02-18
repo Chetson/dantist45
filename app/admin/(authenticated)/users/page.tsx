@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 
 interface User {
   id: number;
@@ -14,7 +12,6 @@ interface User {
 }
 
 export default function AdminUsersPage() {
-  const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -48,11 +45,6 @@ export default function AdminUsersPage() {
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  const handleLogout = async () => {
-    await fetch('/api/auth/logout', { method: 'POST' });
-    router.push('/admin/login');
-  };
 
   const generatePassword = () => {
     const charset =
@@ -271,7 +263,7 @@ export default function AdminUsersPage() {
                   </div>
                 </div>
 
-                {formData.password && !editingUser && (
+                {formData.password && (
                   <div>
                     <label className="mb-1 block text-sm font-medium text-gray-700">
                       Подтверждение пароля
@@ -341,9 +333,7 @@ export default function AdminUsersPage() {
               <tbody className="divide-y divide-gray-200 bg-white">
                 {users.map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-900">
-                      {user.id}
-                    </td>
+                    <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-900">{user.id}</td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-900">
                       {user.username}
                     </td>
@@ -355,10 +345,11 @@ export default function AdminUsersPage() {
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap">
                       <span
-                        className={`rounded-full px-2 py-1 text-xs font-medium ${user.role === 'admin'
-                          ? 'bg-purple-100 text-purple-800'
-                          : 'bg-blue-100 text-blue-800'
-                          }`}
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${
+                          user.role === 'admin'
+                            ? 'bg-purple-100 text-purple-800'
+                            : 'bg-blue-100 text-blue-800'
+                        }`}
                       >
                         {user.role === 'admin' ? 'Администратор' : 'Менеджер'}
                       </span>
