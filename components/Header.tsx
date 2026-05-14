@@ -26,11 +26,15 @@ export default function Header() {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'header-glass py-3' : 'bg-transparent py-5'
-        }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? 'header-glass py-3' : 'bg-transparent py-5'
+      }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link href="/" className="group flex cursor-pointer items-center transition-transform hover:scale-[1.02]">
+        <Link
+          href="/"
+          className="group flex cursor-pointer items-center transition-transform hover:scale-[1.02]"
+        >
           <LogoHeader className="h-9 w-auto md:h-11" />
         </Link>
 
@@ -40,17 +44,11 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="relative text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-primary after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="text-foreground/80 hover:text-primary after:bg-primary relative text-sm font-medium tracking-wide transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:transition-all hover:after:w-full"
             >
               {item.name}
             </Link>
           ))}
-          <Link
-            href="/#appointment"
-            className="ml-4 rounded-full bg-primary px-8 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 hover:shadow-primary/40 active:scale-95"
-          >
-            Записаться
-          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -72,32 +70,23 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          }`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
+          isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        }`}
       >
-        <div className="mx-4 mb-4 mt-2 divide-y divide-border rounded-2xl border border-border bg-card p-2 shadow-2xl">
+        <div className="divide-border border-border bg-card mx-4 mt-2 mb-4 divide-y rounded-2xl border p-2 shadow-2xl">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="block rounded-xl px-4 py-4 text-base font-semibold text-foreground/90 transition-colors hover:bg-muted hover:text-primary"
+              className="text-foreground/90 hover:bg-muted hover:text-primary block rounded-xl px-4 py-4 text-base font-semibold transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
             </Link>
           ))}
-          <div className="p-4">
-            <Link
-              href="/#appointment"
-              className="block w-full rounded-xl bg-primary py-4 text-center text-base font-bold text-white shadow-lg shadow-primary/20 transition-all active:scale-[0.98]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Записаться
-            </Link>
-          </div>
         </div>
       </div>
     </nav>
   );
 }
-

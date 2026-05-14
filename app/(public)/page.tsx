@@ -46,12 +46,6 @@ export default function Home() {
             </p>
             <div className="mt-12 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
               <a
-                href="#appointment"
-                className="bg-primary inline-flex items-center justify-center rounded-2xl px-10 py-5 text-xl font-black text-white shadow-2xl shadow-blue-600/30 transition-all hover:scale-105 hover:bg-blue-700 active:scale-95"
-              >
-                Записаться на прием
-              </a>
-              <a
                 href="#about"
                 className="text-foreground hover:border-primary/20 inline-flex items-center justify-center rounded-2xl border-2 border-slate-200 bg-white/40 px-10 py-5 text-xl font-black backdrop-blur-xl transition-all hover:bg-white active:scale-95"
               >
@@ -74,12 +68,12 @@ export default function Home() {
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-200 text-2xl shadow-inner shadow-amber-300 md:h-20 md:w-20 md:rounded-3xl md:text-4xl">
               📢
             </div>
-            <div className="min-w-0 w-full text-center md:text-left">
+            <div className="w-full min-w-0 text-center md:text-left">
               <h2 className="mb-2 flex items-center justify-center gap-2 text-base font-black tracking-widest text-amber-900 uppercase md:mb-3 md:justify-start md:text-xl">
                 Важное объявление
               </h2>
               <div
-                className="prose prose-slate prose-sm md:prose-lg w-full max-w-full leading-relaxed font-medium text-amber-900/80 [&_*]:max-w-full [&_*]:break-words"
+                className="prose prose-slate prose-sm md:prose-lg w-full max-w-full leading-relaxed font-medium text-amber-900/80 **:max-w-full **:wrap-break-word"
                 dangerouslySetInnerHTML={{ __html: announcementHtml }}
               />
             </div>
@@ -322,9 +316,6 @@ export default function Home() {
               <h2 className="text-5xl leading-tight font-black md:text-7xl">
                 Начните новую жизнь <br /> с улыбки
               </h2>
-              <p className="mt-8 max-w-lg text-xl leading-relaxed font-medium text-blue-100">
-                Мы свяжемся с вами в течение 15 минут для подбора удобного времени консультации.
-              </p>
               <div className="mt-12 flex items-center space-x-6">
                 <div className="flex -space-x-4">
                   {[1, 2, 3, 4].map((i) => (
@@ -341,36 +332,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="z-10 mt-16 lg:mt-0 lg:w-full lg:max-w-md">
-              <form className="text-foreground glow space-y-6 rounded-[3rem] bg-white p-12 shadow-2xl">
-                <div className="space-y-2">
-                  <label className="ml-2 text-xs font-black tracking-widest text-slate-400 uppercase">
-                    Как вас зовут?
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Иван Иванов"
-                    className="focus:border-primary w-full rounded-2xl border-2 border-slate-100 bg-slate-50 px-6 py-4 font-bold transition-all focus:bg-white focus:outline-none"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="ml-2 text-xs font-black tracking-widest text-slate-400 uppercase">
-                    Ваш телефон
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+7 (___) ___-__-__"
-                    className="focus:border-primary w-full rounded-2xl border-2 border-slate-100 bg-slate-50 px-6 py-4 font-bold transition-all focus:bg-white focus:outline-none"
-                  />
-                </div>
-                <button className="bg-accent w-full rounded-2xl py-5 text-xl font-black text-white shadow-xl shadow-emerald-600/20 transition-all hover:scale-[1.02] hover:bg-emerald-600 active:scale-95">
-                  Записаться сейчас
-                </button>
-                <p className="px-4 text-center text-[10px] leading-relaxed font-black tracking-widest text-slate-400 uppercase">
-                  Нажимая кнопку, вы подтверждаете согласие <br /> на обработку персональных данных
-                </p>
-              </form>
             </div>
           </div>
         </div>
